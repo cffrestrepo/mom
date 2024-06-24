@@ -1,0 +1,28 @@
+<resources>
+    <!-- Spaces -->
+    <dimen name="margin">0dp</dimen>
+    <dimen name="padding_search_view">4dp</dimen>
+    <dimen name="margin_search_view_end">8dp</dimen>
+    <dimen name="margin_search_view_start">8dp</dimen>
+    <dimen name="margin_search_view_top">15dp</dimen>
+    <dimen name="title_results_view_start">15dp</dimen>
+    <dimen name="title_results_view_top">20dp</dimen>
+    <dimen name="title_results_view_margin_top">10dp</dimen>
+    <dimen name="title_results_view_top_search">10dp</dimen>
+    <dimen name="card_view_margin_top">20dp</dimen>
+    <dimen name="card_view_image_margin">10dp</dimen>
+    <dimen name="card_view_image_margin_start">10dp</dimen>
+    <dimen name="card_view_image_margin_end">10dp</dimen>
+    <dimen name="card_view_elevation_product">10dp</dimen>
+    <dimen name="card_view_elevation_margin">10dp</dimen>
+    <dimen name="card_view_elevation_corner">4dp</dimen>
+    <dimen name="card_view_title_margin_top">10dp</dimen>
+    <dimen name="card_view_title_margin_start">10dp</dimen>
+    <dimen name="card_view_title_desc_margin_top">5dp</dimen>
+    <dimen name="card_view_address_padding_bottom">10dp</dimen>
+
+    <!-- Text size -->
+    <dimen name="_14sp">14sp</dimen>
+    <dimen name="_12sp">12sp</dimen>
+    <dimen name="_18sp">18sp</dimen>
+</resources>

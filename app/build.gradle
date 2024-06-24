@@ -1,0 +1,125 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs'
+    id 'kotlin-parcelize'
+}
+
+ext {
+    room_version = "2.5.1"
+    lifecycle_components = "2.4.0"
+    coroutines = "1.6.0"
+    junit = "4.13.2"
+    hilt_version = "2.40.1"
+    hilt_compiler = "1.0.0"
+    retrofit_version = "2.9.0"
+    picasso = "2.8"
+    mockk_version = "1.10.0"
+    google_truth_version = "1.0"
+    kotlin_coroutine_version = '1.6.1'
+}
+
+android {
+    namespace 'com.functional.mom'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.functional.mom"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    packagingOptions {
+        exclude 'META-INF/atomicfu.kotlin_module'
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+    testOptions {
+        packagingOptions {
+            jniLibs {
+                useLegacyPackaging = true
+            }
+        }
+    }
+}
+
+dependencies {
+    // Base
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.cardview:cardview:1.0.0'
+
+    // Navigation
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+
+    // Room data base
+    implementation("androidx.room:room-ktx:$room_version")
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    kapt("androidx.room:room-compiler:$room_version")
+    androidTestImplementation "androidx.room:room-testing:$room_version"
+
+    // Lifecycle components
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_components"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_components"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_components"
+
+    // Hilt
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "androidx.hilt:hilt-compiler:$hilt_compiler"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+
+    // Kotlin components
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+
+    // Picasso
+    implementation "com.squareup.picasso:picasso:$picasso"
+
+    // Okhttp3
+    implementation(platform("com.squareup.okhttp3:okhttp-bom:4.10.0"))
+    implementation("com.squareup.okhttp3:okhttp")
+    implementation("com.squareup.okhttp3:logging-interceptor")
+
+    // Test Framework
+    testImplementation "junit:junit:$junit"
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+
+    // Test Mockk
+    testImplementation "io.mockk:mockk:$mockk_version"
+    androidTestImplementation "io.mockk:mockk-android:$mockk_version"
+    testImplementation "com.google.truth:truth:$google_truth_version"
+    androidTestImplementation "androidx.arch.core:core-testing:2.2.0"
+
+    // Test coroutines
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlin_coroutine_version"
+
+    // Test UI
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}

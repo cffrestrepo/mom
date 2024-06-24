@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.functional.mom.presentation.MainActivity">
+    <item
+        android:id="@+id/action_permission_camera"
+        android:orderInCategory="100"
+        android:title="@string/action_permission_camera"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_permission_storage"
+        android:orderInCategory="100"
+        android:title="@string/action_permission_storage"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_permission_location"
+        android:orderInCategory="100"
+        android:title="@string/action_permission_location"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_permission_read_write"
+        android:orderInCategory="100"
+        android:title="@string/action_permission_location_write"
+        app:showAsAction="never" />
+</menu>

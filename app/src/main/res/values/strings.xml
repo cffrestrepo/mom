@@ -1,0 +1,40 @@
+<resources>
+    <!-- App -->
+    <string name="app_name">Mercado libre</string>
+
+    <!-- Permissions -->
+    <string name="action_permission_camera">Permiso Camara</string>
+    <string name="action_permission_storage">Permiso Almacenamiento</string>
+    <string name="action_permission_location">Permiso Ubicación</string>
+    <string name="action_permission_location_write">Permiso de escritura y ubicación</string>
+    <string name="action_permission_write_location">Permisos de escritura y ubicación</string>
+    <string name="action_permission_write_location_success">Perfecto ahora podemos acceder a la escritura y ubicación</string>
+    <string name="action_permission_write_location_failed">Ups! Permisos no otorgados,No podemos acceder a la escritura ni ubicación</string>
+    <string name="action_permission_camera_request">Permiso para acceder a la camara</string>
+    <string name="action_permission_camera_success">Perfecto ahora tenemos acceso a la camara</string>
+    <string name="action_permission_camera_failed">Ups! Permisos no otorgados,No podemos acceder a la camara</string>
+    <string name="action_permission_location_request">Permiso para acceder a la ubicación</string>
+    <string name="action_permission_location_success">Perfecto ahora podemos acceder a la ubicación</string>
+    <string name="action_permission_location_failed">Ups! Permisos no otorgados,No podemos acceder a la ubicación</string>
+    <string name="action_permission_storage_request">Permiso para acceder al almacenamiento</string>
+    <string name="action_permission_storage_success">Perfecto ahora podemos acceder al almacenamiento</string>
+    <string name="action_permission_storage_failed">Ups! Permisos no otorgados,No podemos acceder al almacenamiento</string>
+
+    <!-- Views -->
+    <string name="search">Buscar</string>
+    <string name="empty_search">Ups, el campo esta vacio.</string>
+    <string name="search_fragment_label">¿Qué producto deseas buscar?</string>
+    <string name="products_fragment_label">Resultados de tu busqueda !</string>
+    <string name="detail_fragment_label">Este es tu producto</string>
+    <string name="ups_title">Ups !</string>
+    <string name="accept">Aceptar</string>
+    <string name="title_preview_search">Busqueda anterior</string>
+    <string name="name_product">Producto</string>
+    <string name="nick_name">Nick</string>
+    <string name="address">Dirección</string>
+    <string name="city">Ciudad</string>
+    <string name="price">Valor</string>
+    <string name="dialog_permission_title">Permiso requerido</string>
+    <string name="dialog_permission_default_message">se requiere el permiso</string>
+    <string name="dialog_permission_button_positive">OK</string>
+</resources>

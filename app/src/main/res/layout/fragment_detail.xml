@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/img_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/card_view_image_margin"
+        android:layout_marginTop="@dimen/card_view_margin_top"
+        android:contentDescription="@null"
+        android:scaleType="centerInside" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/card_view_image_margin"
+        android:elevation="@dimen/card_view_elevation_product"
+        card_view:cardCornerRadius="@dimen/card_view_elevation_corner">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/card_view_title_margin_start"
+                android:layout_marginTop="@dimen/title_results_view_margin_top"
+                android:ellipsize="end"
+                android:fadeScrollbars="false"
+                android:lines="1"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="@string/name_product"
+                android:textSize="@dimen/_14sp"
+                android:textStyle="bold"
+                tools:text="texto" />
+
+            <TextView
+                android:id="@+id/text_title_des"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/card_view_title_margin_start"
+                android:textSize="@dimen/_12sp"
+                tools:text="texto" />
+
+            <TextView
+                android:id="@+id/text_title_nick_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/card_view_title_margin_start"
+                android:layout_marginTop="@dimen/card_view_title_margin_top"
+                android:ellipsize="end"
+                android:fadeScrollbars="false"
+                android:lines="1"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="@string/nick_name"
+                android:textSize="@dimen/_14sp"
+                android:textStyle="bold"
+                tools:text="texto" />
+
+            <TextView
+                android:id="@+id/text_title_nick_name_des"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/card_view_title_margin_start"
+                android:textSize="@dimen/_12sp"
+                tools:text="texto" />
+
+            <TextView
+                android:id="@+id/text_title_city"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/card_view_title_margin_start"
+                android:layout_marginTop="@dimen/card_view_title_margin_top"
+                android:ellipsize="end"
+                android:fadeScrollbars="false"
+                android:lines="1"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="@string/city"
+                android:textSize="@dimen/_14sp"
+                android:textStyle="bold"
+                tools:text="texto" />
+
+            <TextView
+                android:id="@+id/text_title_city_des"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/card_view_title_margin_start"
+                android:paddingBottom="@dimen/card_view_address_padding_bottom"
+                android:textSize="@dimen/_12sp"
+                tools:text="texto" />
+
+            <TextView
+                android:id="@+id/text_title_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/card_view_title_margin_start"
+                android:layout_marginTop="@dimen/card_view_title_margin_top"
+                android:ellipsize="end"
+                android:fadeScrollbars="false"
+                android:lines="1"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="@string/address"
+                android:textSize="@dimen/_14sp"
+                android:textStyle="bold"
+                tools:text="texto" />
+
+            <TextView
+                android:id="@+id/text_title_address_des"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/card_view_title_margin_start"
+                android:paddingBottom="@dimen/card_view_address_padding_bottom"
+                android:textSize="@dimen/_12sp"
+                tools:text="texto" />
+
+            <TextView
+                android:id="@+id/text_title_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/card_view_title_margin_start"
+                android:layout_marginTop="@dimen/card_view_title_margin_top"
+                android:ellipsize="end"
+                android:fadeScrollbars="false"
+                android:lines="1"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="@string/price"
+                android:textSize="@dimen/_14sp"
+                android:textStyle="bold"
+                tools:text="texto" />
+
+            <TextView
+                android:id="@+id/text_title_price_des"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/card_view_title_margin_start"
+                android:paddingBottom="@dimen/card_view_address_padding_bottom"
+                android:textSize="@dimen/_12sp"
+                tools:text="texto" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
+
