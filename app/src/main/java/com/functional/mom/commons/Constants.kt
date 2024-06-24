@@ -6,7 +6,7 @@ class Constants {
         // DATA BASE
         const val VERSION_DATA_BASE = 3
         const val TABLE_NAME_PRODUCT = "product"
-        const val NAME_DATA_BASE = "meli_database"
+        const val NAME_DATA_BASE = "mom_database"
 
         // RETROFIT
         const val BASE_URL = "https://api.mercadolibre.com/"
