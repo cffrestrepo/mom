@@ -2,17 +2,17 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
-    id 'dagger.hilt.android.plugin'
     id 'androidx.navigation.safeargs'
     id 'kotlin-parcelize'
+    id 'com.google.dagger.hilt.android'
 }
 
 ext {
-    room_version = "2.5.1"
-    lifecycle_components = "2.4.0"
+    room_version = "2.6.1"
+    lifecycle_components = "2.8.6"
     coroutines = "1.6.0"
     junit = "4.13.2"
-    hilt_version = "2.40.1"
+    hilt_version = "2.44"
     hilt_compiler = "1.0.0"
     retrofit_version = "2.9.0"
     picasso = "2.8"
@@ -33,6 +33,11 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        packagingOptions {
+            exclude 'META-INF/LICENSE.md'
+            exclude 'META-INF/LICENSE-notice.md'
+        }
     }
 
     buildTypes {
@@ -42,14 +47,19 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     packagingOptions {
-        exclude 'META-INF/atomicfu.kotlin_module'
+        resources {
+            excludes += ['META-INF/atomicfu.kotlin_module']
+        }
     }
-    kotlinOptions {
-        jvmTarget = '1.8'
+    kapt {  // Look for this section
+        javacOptions {  // Check options here
+            option "-source", "17"  // Should be set to 11
+            option "-target", "17"  // Should be set to 11
+        }
     }
     buildFeatures {
         viewBinding true
@@ -65,15 +75,15 @@ android {
 
 dependencies {
     // Base
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.core:core-ktx:1.13.1'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'com.google.android.material:material:1.12.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.cardview:cardview:1.0.0'
 
     // Navigation
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.8.1'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.8.1'
 
     // Room data base
     implementation("androidx.room:room-ktx:$room_version")
@@ -109,11 +119,11 @@ dependencies {
 
     // Test Framework
     testImplementation "junit:junit:$junit"
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
 
     // Test Mockk
-    testImplementation "io.mockk:mockk:$mockk_version"
-    androidTestImplementation "io.mockk:mockk-android:$mockk_version"
+    testImplementation "io.mockk:mockk:1.13.12"
+    androidTestImplementation "io.mockk:mockk-android:1.13.12"
     testImplementation "com.google.truth:truth:$google_truth_version"
     androidTestImplementation "androidx.arch.core:core-testing:2.2.0"
 
@@ -121,8 +131,13 @@ dependencies {
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlin_coroutine_version"
 
     // Advertising
-    implementation "com.google.android.gms:play-services-ads:23.1.0"
+    implementation "com.google.android.gms:play-services-ads:23.4.0"
 
     // Test UI
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    androidTestImplementation "com.linkedin.dexmaker:dexmaker:2.28.3"
+}
+
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
 }
