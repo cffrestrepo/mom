@@ -23,12 +23,12 @@ ext {
 
 android {
     namespace 'com.functional.mom'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.functional.mom"
         minSdk 24
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -119,6 +119,9 @@ dependencies {
 
     // Test coroutines
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlin_coroutine_version"
+
+    // Advertising
+    implementation "com.google.android.gms:play-services-ads:23.1.0"
 
     // Test UI
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'

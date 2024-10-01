@@ -10,22 +10,26 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.snackbar.Snackbar
-import com.squareup.picasso.Picasso
 import com.functional.mom.R
 import com.functional.mom.commons.Constants.Companion.GREEN_BACK
 import com.functional.mom.commons.Constants.Companion.PRODUCT
 import com.functional.mom.commons.Constants.Companion.RED_BACK
+import com.functional.mom.commons.Extensions.withColor
+import com.functional.mom.commons.PermissionManager
 import com.functional.mom.databinding.FragmentSearchBinding
 import com.functional.mom.presentation.adapters.ProductsAdapter
 import com.functional.mom.presentation.events.SearchEvents
-import com.functional.mom.commons.Extensions.withColor
-import com.functional.mom.commons.PermissionManager
 import com.functional.mom.presentation.states.SearchScreenStates
 import com.functional.mom.presentation.viewmodel.SearchViewModel
 import com.functional.mom.repository.models.ResultsModel
+import com.google.android.gms.ads.AdListener
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.material.snackbar.Snackbar
+import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
+
 
 @AndroidEntryPoint
 class SearchFragment : BaseFragment() {
@@ -44,7 +48,7 @@ class SearchFragment : BaseFragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         permissionManager = PermissionManager.from(this)
         viewModel = ViewModelProvider(this)[SearchViewModel::class.java]
         binding = FragmentSearchBinding.inflate(inflater, container, false)
@@ -54,10 +58,48 @@ class SearchFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViews()
+        initAds()
+        initListenerAds()
         initSearchView()
         observerBase()
         observer()
         initEvent()
+    }
+
+    private fun initAds() {
+        val adsRequest = AdRequest.Builder().build()
+        binding.bannerFooter.loadAd(adsRequest)
+    }
+
+    private fun initListenerAds() {
+        object : AdListener() {
+            override fun onAdClicked() {
+                // Code to be executed when the user clicks on an ad.
+            }
+
+            override fun onAdClosed() {
+                // Code to be executed when the user is about to return
+                // to the app after tapping on an ad.
+            }
+
+            override fun onAdFailedToLoad(adError: LoadAdError) {
+                // Code to be executed when an ad request fails.
+            }
+
+            override fun onAdImpression() {
+                // Code to be executed when an impression is recorded
+                // for an ad.
+            }
+
+            override fun onAdLoaded() {
+                // Code to be executed when an ad finishes loading.
+            }
+
+            override fun onAdOpened() {
+                // Code to be executed when an ad opens an overlay that
+                // covers the screen.
+            }
+        }.also { binding.bannerFooter.adListener = it }
     }
 
     private fun initEvent() {
@@ -74,12 +116,15 @@ class SearchFragment : BaseFragment() {
                         viewModel.postEvent(SearchEvents.InactiveNavigateToProductsEvent)
                     }
                 }
+
                 is SearchScreenStates.HandledErrorState -> {
                     handledError(state.error)
                 }
+
                 is SearchScreenStates.LoadingState -> {
                     binding.progressIndicator.isVisible = state.isVisible
                 }
+
                 is SearchScreenStates.HistoryProductsLoadedState -> {
                     loadProductsPreviewSearch(state.data)
                 }
