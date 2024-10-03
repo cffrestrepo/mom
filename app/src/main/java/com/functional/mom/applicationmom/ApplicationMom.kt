@@ -13,7 +13,7 @@ class ApplicationMom : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        //MobileAds.initialize(this@ApplicationMom) {}
+        MobileAds.initialize(this@ApplicationMom) {}
 
         val backgroundScope = CoroutineScope(Dispatchers.IO)
         backgroundScope.launch {

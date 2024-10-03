@@ -1,6 +1,6 @@
 <resources>
     <!-- App -->
-    <string name="app_name">Mercado libre</string>
+    <string name="app_name">Mom</string>
 
     <!-- Permissions -->
     <string name="action_permission_camera">Permiso Camara</string>

@@ -71,6 +71,9 @@
         app:layout_constraintTop_toBottomOf="@id/tv_title_preview_result"
         app:tint="@color/gray_icon" />
 
+    <!--Productivo: ca-app-pub-4325219253656061/4846174867 -->
+    <!--Desarrollo: ca-app-pub-3940256099942544/6300978111 -->
+
     <com.google.android.gms.ads.AdView
         android:id="@+id/bannerFooter"
         android:layout_width="wrap_content"
